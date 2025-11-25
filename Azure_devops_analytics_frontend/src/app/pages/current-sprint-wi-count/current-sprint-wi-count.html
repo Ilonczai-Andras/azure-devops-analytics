@@ -1,0 +1,25 @@
+@if (!isLoading) {
+<div class="dash-card-header">
+  <span class="label">Jelenlegi sprint wi szám</span>
+  <span class="value">{{ totalHours }}</span>
+</div>
+
+<div class="dash-card-content">
+  <!-- <div class="chart-container">
+    <canvas
+      baseChart
+      [type]="'pie'"
+      [datasets]="pieChartData"
+      [labels]="pieChartLabels"
+      [options]="pieChartOptions"
+      [plugins]="pieChartPlugins"
+      [legend]="pieChartLegend"
+    >
+    </canvas>
+  </div> -->
+</div>
+} @else {
+<div class="loading-state">
+  <p>Adatok betöltése...</p>
+</div>
+}
