@@ -1,0 +1,16 @@
+@if (!isLoading) {
+<div class="dash-card-header">
+  <span class="label">Összes munkaóra</span>
+  <span class="value">{{ totalHours }}</span>
+</div>
+
+<div class="dash-card-content">
+  <div class="chart-container">
+    <canvas baseChart [data]="chartData" [options]="chartOptions" [type]="chartType"> </canvas>
+  </div>
+</div>
+} @else {
+<div class="loading-state">
+  <p>Kapacitás adatok betöltése...</p>
+</div>
+}

@@ -30,3 +30,18 @@ export interface WorkItem {
 export interface WorkItemsResponse {
   workItems: WorkItem[];
 }
+
+//4
+export interface TeamMember {
+  name: string;
+  capacityPerDay: number;
+  workingDays: number;
+  personalDaysOff: number;
+  effectiveDays: number;
+  hours: number;
+}
+
+export interface TeamCapacity {
+  totalRealWorkHours: number;
+  members: TeamMember[];
+}
