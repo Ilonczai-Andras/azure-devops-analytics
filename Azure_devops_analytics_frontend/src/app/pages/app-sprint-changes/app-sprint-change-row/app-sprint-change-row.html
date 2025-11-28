@@ -1,0 +1,14 @@
+<div class="row-card">
+  <div class="row-header">
+    <span class="work-item-id">#{{ item.workItemId }}</span>
+    <span class="date">{{ item.date }}</span>
+  </div>
+
+  <div class="row-body">
+    <div class="path-row">
+      <span class="badge old">{{ item.oldSprintPath }}</span>
+      <span class="arrow">➔</span>
+      <span class="badge new">{{ item.newSprintPath || 'Backlog' }}</span>
+    </div>
+  </div>
+</div>

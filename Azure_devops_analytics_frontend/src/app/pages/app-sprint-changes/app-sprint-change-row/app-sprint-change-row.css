@@ -1,0 +1,63 @@
+.row-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-left: 4px solid #d32f2f;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  transition: transform 0.1s;
+}
+
+.row-card:hover {
+  background-color: #fafafa;
+  transform: translateX(2px);
+}
+
+.row-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.work-item-id {
+  font-weight: 700;
+  color: #333;
+}
+
+.row-body {
+  display: flex;
+  align-items: center;
+}
+
+.path-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+.arrow {
+  margin: 0 10px;
+  color: #bbb;
+  font-size: 1.1em;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-family: monospace;
+  font-size: 0.8em;
+}
+
+.badge.old {
+  background: #ffebee;
+  color: #c62828;
+  text-decoration: line-through; /* Visual cue for "Removed" */
+}
+
+.badge.new {
+  background: #e8f5e9;
+  color: #2e7d32;
+}

@@ -1,0 +1,21 @@
+@if (!isLoading){
+<div class="dash-card-header">
+  <span class="label">Eltávolított work itemek</span>
+  <span class="value">{{ totalRemovedItemCount }} db</span>
+</div>
+
+<div class="dash-card-body">
+  <div class="scroll-area">
+    @if (sprintChangesList.length > 0) { @for (item of sprintChangesList; track item.workItemId) {
+    <app-sprint-change-row [item]="item"></app-sprint-change-row>
+    } } @else {
+    <div class="empty-state">Nincs megjeleníthető adat.</div>
+    }
+  </div>
+</div>
+
+} @else {
+<div class="loading-state">
+  <p>Adatok betöltése...</p>
+</div>
+}

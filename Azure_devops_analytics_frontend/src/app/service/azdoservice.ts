@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { WorkItemCount } from '../model/models';
+import { SprintChangeLog, WorkItemCount } from '../model/models';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +13,9 @@ export class Azdoservice {
   
   getWiCount(): Observable<WorkItemCount> {
     return this.http.get<WorkItemCount>(`${this.apiUrl}/wi-count`);
+  }
+
+  getSprintChanges(): Observable<SprintChangeLog> {
+    return this.http.get<SprintChangeLog>(`${this.apiUrl}/sprint-changes`);
   }
 }
