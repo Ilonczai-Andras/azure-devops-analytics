@@ -26,12 +26,20 @@ export class SupportEffortRemaining implements OnInit {
     labels: [],
     datasets: [
       {
-        label: 'Effort',
+        label: 'Becsült',
         data: [],
+        backgroundColor: '#23a023ff',
+        borderColor: '#000000ff',
+        hoverBackgroundColor: '#9dff00ff',
+        borderWidth: 1
       },
       {
-        label: 'Remaining Work',
+        label: 'Hátralévő',
         data: [],
+        backgroundColor: '#ff0000ff',
+        borderColor: '#000000ff',
+        hoverBackgroundColor: '#fd5151ff',
+        borderWidth: 1
       },
     ],
   };

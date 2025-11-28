@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartOptions, ChartType } from 'chart.js';
-import { TeamCapacity } from '../../model/models';
+import { TeamCapacity, TeamMember } from '../../model/models';
 import { Azdoservice } from '../../service/azdoservice';
 import { BaseChartDirective } from 'ng2-charts';
 
@@ -16,6 +16,8 @@ export class SprintCapacity implements OnInit {
   totalHours: number = 0;
   averageEffectiveDays: number = 0;
 
+  members: TeamMember[] = [];
+
   public chartType: ChartType = 'bar';
 
   public chartOptions: ChartOptions = {
@@ -23,10 +25,24 @@ export class SprintCapacity implements OnInit {
     maintainAspectRatio: false,
     indexAxis: 'y',
     plugins: {
-      legend: {
-        display: false
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            const member = this.members[context.dataIndex];
+            if (!member) return 'Nincs adat';
+            return [
+              `Kapacitás/nap: ${member.capacityPerDay}`,
+              `Dolgozott napok: ${member.workingDays}`,
+              `Személyes szabadság: ${member.personalDaysOff}`,
+              `Hatékony napok: ${member.effectiveDays}`,
+              `Összes óra: ${member.hours}`
+            ];
+          }
+        }
       }
-  }};
+    }
+  };
 
   public chartData: ChartConfiguration['data'] = {
     datasets: [],
@@ -42,8 +58,9 @@ export class SprintCapacity implements OnInit {
   loadCapacityData() {
     this.azdoService.getTeamCapacity().subscribe({
       next: (data: TeamCapacity) => {
-
         this.totalHours = data.totalRealWorkHours;
+
+        this.members = data.members;
 
         const memberNamesWithDays = data.members.map(
           m => `${m.name} (${m.effectiveDays} nap)`
@@ -65,9 +82,9 @@ export class SprintCapacity implements OnInit {
             {
               data: memberHours,
               label: 'Kapacitás (óra)',
-              backgroundColor: '#1b998b',
-              borderColor: '#1b998b',
-              hoverBackgroundColor: '#178a7d',
+              backgroundColor: '#23a023ff',
+              borderColor: '#000000ff',
+              hoverBackgroundColor: '#9dff00ff',
               borderWidth: 1
             }
           ]

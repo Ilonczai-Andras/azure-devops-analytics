@@ -46,6 +46,19 @@ export interface TeamCapacity {
   members: TeamMember[];
 }
 
+//5
+
+export interface DevelopmentHoursResponse {
+  totalDevelopmentHours: number;
+  members: DevelopmentMember[];
+}
+
+export interface DevelopmentMember {
+  name: string;
+  developmentHours: number;
+  workItemCount: number;
+}
+
 //6
 export interface SupportResponse {
   totalEffort: number;
