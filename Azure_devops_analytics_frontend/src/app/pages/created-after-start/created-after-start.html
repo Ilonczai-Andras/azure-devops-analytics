@@ -1,0 +1,24 @@
+@if (!isLoading) {
+  <div class="dash-card-header">
+    <span class="label">Sprintben létrehozott új WI-k</span>
+    <span class="value">{{ workItemCount }} db</span>
+  </div>
+
+  <div class="dash-card-content list-layout">
+    
+    <div class="scroll-area">
+      @if (workItems.length === 0) {
+        <div class="empty-state">Nincs megjeleníthető adat.</div>
+      }
+
+      @for (wi of workItems; track wi.Id) {
+        <app-work-item-row [item]="wi"></app-work-item-row>
+      }
+    </div>
+
+  </div>
+} @else {
+  <div class="loading-state">
+    <p>Adatok betöltése...</p>
+  </div>
+}

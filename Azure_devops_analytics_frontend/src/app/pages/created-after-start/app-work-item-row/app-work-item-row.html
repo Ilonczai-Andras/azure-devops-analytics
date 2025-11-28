@@ -1,0 +1,19 @@
+<div class="row-card">
+  <div class="row-header">
+    <div class="id-group">
+      <span class="id">#{{ item.Id }}</span>
+      <span class="state" [ngClass]="getStateClass(item.State)">{{ item.State }}</span>
+    </div>
+    <span class="date">{{ item.CreatedDate | date:'MM.dd' }}</span>
+  </div>
+
+  <div class="title" [title]="item.Title">
+    {{ item.Title }}
+  </div>
+
+  <div class="footer">
+    <span class="user">
+      <span class="icon">👤</span> {{ getAssignedName() }}
+    </span>
+  </div>
+</div>
