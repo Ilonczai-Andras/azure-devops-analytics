@@ -1,0 +1,25 @@
+@if (!isLoading) {
+  <div class="dash-card-header">
+    <span class="label">Support összesítő</span>
+    <span class="value" title="Becsült | Hátralévő">
+      B: {{ stats.effort }} | H: {{ stats.remaining }}
+    </span>
+  </div>
+
+  <div class="dash-card-content">
+    
+    <div class="chart-container">
+      <canvas 
+        baseChart 
+        [data]="chartData" 
+        [options]="chartOptions" 
+        [type]="chartType"> 
+      </canvas>
+    </div>
+
+  </div>
+} @else {
+  <div class="loading-state">
+    <p>Fejlesztési adatok betöltése...</p>
+  </div>
+}

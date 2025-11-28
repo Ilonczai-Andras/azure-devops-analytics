@@ -45,3 +45,16 @@ export interface TeamCapacity {
   totalRealWorkHours: number;
   members: TeamMember[];
 }
+
+//6
+export interface SupportResponse {
+  totalEffort: number;
+  totalRemaining: number;
+  members: SupportMember[];
+}
+
+export interface SupportMember {
+  name: string;
+  effort: number;
+  remainingWork: number;
+}

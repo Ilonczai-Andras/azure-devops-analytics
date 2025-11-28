@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SprintChangeLog, TeamCapacity, WorkItemCount, WorkItemsResponse } from '../model/models';
+import { SprintChangeLog, SupportResponse, TeamCapacity, WorkItemCount, WorkItemsResponse } from '../model/models';
 
 @Injectable({
   providedIn: 'root',
@@ -25,5 +25,9 @@ export class Azdoservice {
 
   getTeamCapacity(): Observable<TeamCapacity> {
     return this.http.get<TeamCapacity>(`${this.apiUrl}/sprint-capacity`);
+  }
+
+  getSupportHours(): Observable<SupportResponse> {
+    return this.http.get<SupportResponse>(`${this.apiUrl}/support-effort-remaining`);
   }
 }

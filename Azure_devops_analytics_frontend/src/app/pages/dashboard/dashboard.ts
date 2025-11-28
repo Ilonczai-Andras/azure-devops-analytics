@@ -3,10 +3,11 @@ import { CurrentSprintWiCount } from '../current-sprint-wi-count/current-sprint-
 import { AppSprintChanges } from '../app-sprint-changes/app-sprint-changes';
 import { CreatedAfterStart } from '../created-after-start/created-after-start';
 import { SprintCapacity } from '../sprint-capacity/sprint-capacity';
+import { SupportEffortRemaining } from '../support-effort-remaining/support-effort-remaining';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CurrentSprintWiCount, AppSprintChanges, CreatedAfterStart, SprintCapacity],
+  imports: [CurrentSprintWiCount, AppSprintChanges, CreatedAfterStart, SprintCapacity, SupportEffortRemaining],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
